@@ -1,0 +1,6 @@
+2017-maj-15 16:41:09, Exception was thrown: No such item ID: 10
+se.kth.ict.nextgenpos.model.NonExistingItemIdException: No such item ID: 10
+	at se.kth.ict.nextgenpos.controller.Controller.enterItem(Controller.java:56)
+	at se.kth.ict.nextgenpos.view.View.enterItem(View.java:55)
+	at se.kth.ict.nextgenpos.view.View.test(View.java:45)
+	at se.kth.ict.nextgenpos.startup.Main.main(Main.java:16)
