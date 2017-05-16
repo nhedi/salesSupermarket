@@ -35,16 +35,16 @@ public class View {
      * Simulates a view. Makes some calls to the controller.
      */
     public void test() {
-	cont.makeNewSale();
-	enterItem(1);
-	System.out.println(">>>>> NOTE!!\n" +
+    	cont.makeNewSale();
+    	enterItem(1);
+    	System.out.println(">>>>> NOTE!!\n" +
 			   "A null pointer exception will follow since there is no handling" + 
 			   " of non-existing item ids. When you have implemented exception" +
 			   " handling, there should be some informative printout instead of the" +
 			   " exception stack trace.");
-	enterItem(2);
-	enterItem(3);
-	enterItem(1);
+    	enterItem(2);
+    	enterItem(3);
+    	enterItem(1);
     }
 
     /**
@@ -52,14 +52,14 @@ public class View {
      * @param itemId an identifier for the item that is entered.
      */
     private void enterItem(int itemId) {
-	try{
-		System.out.println("");
-		System.out.println("\n ### The information about the requested product ### \n Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
-		System.out.println("");
-	} catch(NonExistingItemIdException n) {
-		handleException(n.getMessage(), n);
-		}
-    }
+    	try {
+    		System.out.println("");
+    		System.out.println("\n ### The information about the requested product ### \n Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
+    		System.out.println("");
+    	} catch(NonExistingItemIdException n) {
+    		handleException(n.getMessage(), n);
+			}
+    	}
     
     /**
      * Handles different types of exceptions.
@@ -70,6 +70,4 @@ public class View {
         errorMsgHandler.showErrorMsg(uiMsg);
         logger.logException(exc);
     }
-
-
 }

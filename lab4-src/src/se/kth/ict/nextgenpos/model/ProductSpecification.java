@@ -15,14 +15,14 @@ public class ProductSpecification {
      */
     public ProductSpecification(int productId, String name, String descr, 
 								int price /* more properties */) {
-	this.productId = productId;
-	this.description = descr;
-	this.name = name;
-	this.price = price;
+    	this.productId = productId;
+    	this.description = descr;
+    	this.name = name;
+    	this.price = price;
     }
 
     public int getPrice() {
-	return price;
+    	return price;
     }
     
     public String getName(){
@@ -36,8 +36,8 @@ public class ProductSpecification {
     //More get methods.
 
     public String toString() {
-	return "Product id: " + productId + ", name: " + name + 
-	    ", price:" + price + "\ndescription: " + description;
+    	return "Product id: " + productId + ", name: " + name + 
+    			", price:" + price + "\ndescription: " + description;
 	    
     }
 }

@@ -17,16 +17,16 @@ public class Receipt {
      * @param sale      The <code>Sale</code> for wich the receipt shall be created.
      */
     Receipt(Sale sale) {
-	totalCost = sale.getCurrentTotal();
-	payedAmount = sale.getPayedAmount();
-	createReceiptLines(sale);
+    	totalCost = sale.getCurrentTotal();
+    	payedAmount = sale.getPayedAmount();
+    	createReceiptLines(sale);
     }
 
     private void createReceiptLines(Sale sale) {
-	sale.resetLineItemIterator();
-	while (sale.hasMoreLineItems()) {
-	    receiptLines.add(sale.nextLineItem());
-	}
+    	sale.resetLineItemIterator();
+    	while (sale.hasMoreLineItems()) {
+    		receiptLines.add(sale.nextLineItem());
+    	}
     }
 
     /**
@@ -35,7 +35,7 @@ public class Receipt {
      * @return The amount of change the customer should have.
      */
     public int getChange() {
-	return payedAmount - totalCost;
+    	return payedAmount - totalCost;
     }
 
     /**
@@ -45,7 +45,6 @@ public class Receipt {
      */
     public String toString() {
 	//create a string that can be printed on the receipt.
-	return null; //Sould return the string created above.
+    	return null; //Sould return the string created above.
     }
-
 }

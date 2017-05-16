@@ -9,6 +9,7 @@ package se.kth.ict.nextgenpos.model;
  * object’s <code>newItem</code> method is invoked.
  */
 public interface SalesObserver { 
+	
 	/**
      * Invoked when a sales item has been added.
      *

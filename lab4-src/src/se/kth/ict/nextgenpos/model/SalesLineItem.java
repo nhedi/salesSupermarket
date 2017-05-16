@@ -15,8 +15,8 @@ public class SalesLineItem {
      * @param quantity    The number of items of this product that are sold to the customer.
      */
     SalesLineItem(ProductSpecification spec, int quantity) {
-	this.spec = spec;
-	this.quantity = quantity;
+    	this.spec = spec;
+    	this.quantity = quantity;
     }
 
     /**
@@ -25,7 +25,7 @@ public class SalesLineItem {
      * @return  The sum of the cost of all products represented by this instance.
      */
     int getCost() {
-	return spec.getPrice() * quantity;
+    	return spec.getPrice() * quantity;
     }
     
     public ProductSpecification getSpec(){
@@ -34,6 +34,5 @@ public class SalesLineItem {
     
     public int getQuantity(){
     	return quantity;
-    }
-    
+    }   
 }

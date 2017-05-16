@@ -36,8 +36,7 @@ public class Sale {
     }
 
     private void addToTotal(SalesLineItem lineItem) {
-	currentTotal = 
-	    currentTotal + lineItem.getCost();
+    	currentTotal = currentTotal + lineItem.getCost();
     }
 
     /**
@@ -46,14 +45,14 @@ public class Sale {
      * @return The total cost of all products registered so for.
      */
     public int getCurrentTotal() {
-	return currentTotal;
+    	return currentTotal;
     }
     
     /**
      * Adds 
      * @param obs
      */
-    public void addSalesObservers(List<SalesObserver> obs){
+    public void addSalesObservers(List<SalesObserver> obs) {
     	salesObservers.addAll(obs);
     }
     
@@ -74,23 +73,23 @@ public class Sale {
      * @return All information needed for the receipt.
      */
     public Receipt createReceipt(int payedAmount) {
-	this.payedAmount = payedAmount;
-	return new Receipt(this);
+    	this.payedAmount = payedAmount;
+    	return new Receipt(this);
     }
 
     void resetLineItemIterator() {
-	iterator = 0;
+    	iterator = 0;
     }
 
     SalesLineItem nextLineItem() {
-	return lineItems.get(iterator);
+    	return lineItems.get(iterator);
     }
 
     boolean hasMoreLineItems() {
-	return iterator < lineItems.size();
+    	return iterator < lineItems.size();
     }
 
     int getPayedAmount() {
-	return payedAmount;
+    	return payedAmount;
     }
 }

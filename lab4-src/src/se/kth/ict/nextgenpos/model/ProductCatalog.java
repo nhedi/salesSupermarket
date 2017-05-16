@@ -32,13 +32,9 @@ public class ProductCatalog {
      * @throws	NonExistingItemIdException if the search item Id does not exist in the product catalog.
      */
     public ProductSpecification findSpecification(int itemId) throws NonExistingItemIdException {
-    	if(products.get(itemId) == null)
-    	{
+    	if(products.get(itemId) == null) {
     		throw new NonExistingItemIdException("No such item ID: " + itemId);
     	}    		
-
     	return products.get(itemId);
     }
-    
-
 }

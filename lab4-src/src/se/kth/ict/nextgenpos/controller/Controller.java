@@ -75,7 +75,7 @@ public class Controller {
     public int getTotalCost() {
 	if (sale == null) {
 	    throw new IllegalStateException("enterItem() called before makeNewSale()");
-	}
+		}
 	return sale.getCurrentTotal();
     }
 
@@ -85,11 +85,10 @@ public class Controller {
      * @return All information needed for the receipt.
      */
     public Receipt makePayment(int payedAmount) {
-	return sale.createReceipt(payedAmount);
+    	return sale.createReceipt(payedAmount);
     }
 
 	public void addSalesObserver(SalesObserver obs) {
 		saleObservers.add(obs);
 	}
-
 }
