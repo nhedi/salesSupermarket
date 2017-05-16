@@ -21,14 +21,23 @@ public class ProductSpecification {
     	this.price = price;
     }
 
+    /**
+     * @return Price of the specified itemId
+     */
     public int getPrice() {
     	return price;
     }
     
+    /**
+     * @return Name of the specified itemId.
+     */
     public String getName(){
     	return name;
     }
     
+    /**
+     * @return The product Id of the specified itemId.
+     */
     public int getProductId(){
     	return productId;
     }
@@ -37,8 +46,6 @@ public class ProductSpecification {
 
     public String toString() {
     	return "Product id: " + productId + ", name: " + name + 
-    			", price:" + price + "\ndescription: " + description;
-	    
+    			", price:" + price + "\ndescription: " + description;	    
     }
 }
-    

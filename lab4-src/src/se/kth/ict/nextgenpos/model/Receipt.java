@@ -22,6 +22,11 @@ public class Receipt {
     	createReceiptLines(sale);
     }
 
+    
+    /**
+     * Creates the receipt of the specified sale.
+     * @param sale The information about this specified sale.
+     */
     private void createReceiptLines(Sale sale) {
     	sale.resetLineItemIterator();
     	while (sale.hasMoreLineItems()) {
@@ -45,6 +50,6 @@ public class Receipt {
      */
     public String toString() {
 	//create a string that can be printed on the receipt.
-    	return null; //Sould return the string created above.
+    	return null; //Should return the string created above.
     }
 }

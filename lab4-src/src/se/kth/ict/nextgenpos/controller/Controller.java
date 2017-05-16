@@ -1,12 +1,11 @@
 package se.kth.ict.nextgenpos.controller;
 
 import se.kth.ict.nextgenpos.model.Sale;
-import se.kth.ict.nextgenpos.view.SalesItemDisplay;
+import se.kth.ict.nextgenpos.model.SalesObserver;
 import se.kth.ict.nextgenpos.model.Receipt;
 import se.kth.ict.nextgenpos.model.ProductCatalog;
 import se.kth.ict.nextgenpos.model.ProductSpecification;
 import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
-import se.kth.ict.nextgenpos.model.*;
 import java.util.*;
 
 /**
@@ -67,8 +66,7 @@ public class Controller {
      * Returns the total cost for all items registered so far in the current sale.
      * When a new sale shall be started <code>makeNewSale()</code> must be called.
      *
-     * @return                       The total cost for all items registered so far in 
-     *                               the current sale.
+     * @return The total cost for all items registered so far in the current sale.
      * @throws IllegalStateException If this method is called before makeNewSale().
      */
     public int getTotalCost() {
@@ -87,6 +85,10 @@ public class Controller {
     	return sale.createReceipt(payedAmount);
     }
 
+    /**
+     * Adds a class to a SalesObserver list that will be notified when a new item is registered.
+     * @param obs The class to add to the SalesObserver list.
+     */
 	public void addSalesObserver(SalesObserver obs) {
 		saleObservers.add(obs);
 	}

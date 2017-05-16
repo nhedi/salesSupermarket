@@ -13,7 +13,7 @@ public interface SalesObserver {
 	/**
      * Invoked when a sales item has been added.
      *
-     * @param rentedCar The car that was rented.
+     * @param lineItems The car that was rented.
 	 * @throws NonExistingItemIdException 
      */
 void newItem(SalesLineItem lineItems) throws NonExistingItemIdException;

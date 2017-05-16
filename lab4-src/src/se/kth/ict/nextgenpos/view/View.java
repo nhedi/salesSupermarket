@@ -1,15 +1,9 @@
 package se.kth.ict.nextgenpos.view;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 import se.kth.ict.nextgenpos.controller.Controller;
 import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
-import se.kth.ict.nextgenpos.model.SalesObserver;
 import se.kth.ict.nextgenpos.util.LogHandler;
-import se.kth.ict.nextgenpos.model.ProductSpecification;
 
 /**
  * A placeholder for the view.
@@ -44,7 +38,6 @@ public class View {
 			   " exception stack trace.");
     	enterItem(2);
     	enterItem(3);
-    	enterItem(1);
     }
 
     /**
