@@ -1,4 +1,4 @@
-package util;
+package se.kth.ict.nextgenpos.util;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -32,8 +32,8 @@ public class LogHandler {
 	}
 	
 	private String createTime() {
-	LocalDateTime now = LocalDateTime.now();
-	DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-	return now.format(formatter);
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+		return now.format(formatter);
 	}
 }

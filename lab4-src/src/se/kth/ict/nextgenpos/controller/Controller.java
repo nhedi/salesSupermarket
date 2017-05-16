@@ -33,6 +33,7 @@ public class Controller {
      */
     public void makeNewSale() {
 	sale = new Sale();
+	sale.addSalesObservers(saleObservers);
     }
 
     /**
@@ -49,8 +50,6 @@ public class Controller {
     public ProductSpecification enterItem(int itemId, int quantity) throws NonExistingItemIdException {
 	
     	ProductSpecification spec;
-    	sale.addSalesObservers(saleObservers);
-    
 		if (sale == null) {
 		    throw new IllegalStateException("enterItem() called before makeNewSale()");
 		}

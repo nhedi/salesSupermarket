@@ -8,8 +8,8 @@ import java.util.Map;
 import se.kth.ict.nextgenpos.controller.Controller;
 import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
 import se.kth.ict.nextgenpos.model.SalesObserver;
+import se.kth.ict.nextgenpos.util.LogHandler;
 import se.kth.ict.nextgenpos.model.ProductSpecification;
-import util.LogHandler;
 
 /**
  * A placeholder for the view.
@@ -58,8 +58,8 @@ public class View {
     		System.out.println("");
     	} catch(NonExistingItemIdException n) {
     		handleException(n.getMessage(), n);
-			}
-    	}
+		}
+    }
     
     /**
      * Handles different types of exceptions.
