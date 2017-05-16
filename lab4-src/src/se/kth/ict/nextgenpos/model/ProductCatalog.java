@@ -9,7 +9,7 @@ import java.util.List;
  * This class is responsible for all access to the product database.
  */ 
 public class ProductCatalog { 
-	private List<SalesObserver> salesObservers = new ArrayList<>();
+
     private Map<Integer, ProductSpecification> products = new HashMap<Integer, ProductSpecification>();
 
     /**
@@ -36,13 +36,9 @@ public class ProductCatalog {
     	{
     		throw new NonExistingItemIdException("No such item ID: " + itemId);
     	}    		
-	    notifyObservers();
+
     	return products.get(itemId);
     }
     
-    private void notifyObservers() {
-    	for (SalesObserver obs : salesObservers) {
-    		obs.newItem(itemId);
-    	} 	
-    }
+
 }

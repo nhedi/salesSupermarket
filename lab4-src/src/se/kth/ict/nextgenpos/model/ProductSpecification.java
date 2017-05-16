@@ -14,7 +14,7 @@ public class ProductSpecification {
      * Creates a new instance.
      */
     public ProductSpecification(int productId, String name, String descr, 
-				int price /* more properties */) {
+								int price /* more properties */) {
 	this.productId = productId;
 	this.description = descr;
 	this.name = name;
@@ -23,6 +23,14 @@ public class ProductSpecification {
 
     public int getPrice() {
 	return price;
+    }
+    
+    public String getName(){
+    	return name;
+    }
+    
+    public int getProductId(){
+    	return productId;
     }
 
     //More get methods.

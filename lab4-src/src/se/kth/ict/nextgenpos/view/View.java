@@ -14,8 +14,7 @@ import util.LogHandler;
 /**
  * A placeholder for the view.
  */
-public class View implements SalesObserver {
-    private Map<Integer, ProductSpecification> noOfItemsRegistered = new HashMap<Integer, ProductSpecification>();    
+public class View {
     private Controller cont;
     private ErrorMessageHandler errorMsgHandler = new ErrorMessageHandler();
     private LogHandler logger;
@@ -23,12 +22,13 @@ public class View implements SalesObserver {
 
     /**
      * Creates a new <code>View</code>.
-     * @param cont           The controller of the application.
+     * @param cont The controller of the application.
      * @throws IOException 
      */
     public View(Controller cont) throws IOException {
-	this.cont = cont;
-	this.logger = new LogHandler();
+    	this.cont = cont;
+    	this.logger = new LogHandler();
+    	cont.addSalesObserver(new SalesItemDisplay());
     }
 
     /**
@@ -42,7 +42,9 @@ public class View implements SalesObserver {
 			   " of non-existing item ids. When you have implemented exception" +
 			   " handling, there should be some informative printout instead of the" +
 			   " exception stack trace.");
-	enterItem(10);
+	enterItem(2);
+	enterItem(3);
+	enterItem(1);
     }
 
     /**
@@ -52,7 +54,7 @@ public class View implements SalesObserver {
     private void enterItem(int itemId) {
 	try{
 		System.out.println("");
-		System.out.println("Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
+		System.out.println("\n ### The information about the requested product ### \n Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
 		System.out.println("");
 	} catch(NonExistingItemIdException n) {
 		handleException(n.getMessage(), n);
@@ -69,25 +71,5 @@ public class View implements SalesObserver {
         logger.logException(exc);
     }
 
-	@Override
-	public void newItem(int itemId) throws NonExistingItemIdException {
-		addNewItem(itemId);
-		printCurrentState(noOfItemsRegistered);
-	}
-	
-	private void addNewItem(int itemId) throws NonExistingItemIdException {
-		noOfItemsRegistered.put(itemId, cont.enterItem(itemId, quantity));
-	}
-	
-	private void printCurrentState(Map<Integer, ProductSpecification> noOfItemsRegistered) throws NonExistingItemIdException { 
-		System.out.println("### The items registered in the product catalog: ###"); 
-		//Iterator it = noOfItemsRegistered.entrySet().iterator();
-		//while (it.hasNext())
-		for (int itemId : noOfItemsRegistered.keySet()) {
-        System.out.print(noOfItemsRegistered.get(itemId));
-        System.out.print(" ");
-		System.out.println(itemId + ": " + cont.enterItem(itemId, quantity));
-        System.out.println("##############################");
-		}
-	}
+
 }

@@ -15,6 +15,6 @@ public interface SalesObserver {
      * @param rentedCar The car that was rented.
 	 * @throws NonExistingItemIdException 
      */
-void newItem(int itemId) throws NonExistingItemIdException;
+void newItem(SalesLineItem lineItems) throws NonExistingItemIdException;
 
 }

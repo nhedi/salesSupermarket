@@ -1,10 +1,13 @@
 package se.kth.ict.nextgenpos.controller;
 
 import se.kth.ict.nextgenpos.model.Sale;
+import se.kth.ict.nextgenpos.view.SalesItemDisplay;
 import se.kth.ict.nextgenpos.model.Receipt;
 import se.kth.ict.nextgenpos.model.ProductCatalog;
 import se.kth.ict.nextgenpos.model.ProductSpecification;
 import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
+import se.kth.ict.nextgenpos.model.*;
+import java.util.*;
 
 /**
  * The controller of the application. This is the sole controller, all calls to the
@@ -13,6 +16,7 @@ import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
 public class Controller {
     private Sale sale;
     private ProductCatalog catalog;
+    private List<SalesObserver> saleObservers = new ArrayList<>();
 
     /**
      * Instantiates a new <code>Controller</code>.
@@ -45,13 +49,15 @@ public class Controller {
     public ProductSpecification enterItem(int itemId, int quantity) throws NonExistingItemIdException {
 	
     	ProductSpecification spec;
+    	sale.addSalesObservers(saleObservers);
     
 		if (sale == null) {
 		    throw new IllegalStateException("enterItem() called before makeNewSale()");
 		}
 		try {
 			spec = catalog.findSpecification(itemId);
-			sale.addItem(spec, quantity);			
+			sale.addItem(spec, quantity);
+			
 		} catch(NonExistingItemIdException n) {
 			throw new NonExistingItemIdException(n.getMessage());
 		}
@@ -81,5 +87,9 @@ public class Controller {
     public Receipt makePayment(int payedAmount) {
 	return sale.createReceipt(payedAmount);
     }
+
+	public void addSalesObserver(SalesObserver obs) {
+		saleObservers.add(obs);
+	}
 
 }

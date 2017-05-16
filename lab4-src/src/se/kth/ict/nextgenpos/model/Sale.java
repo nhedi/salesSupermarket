@@ -2,6 +2,7 @@ package se.kth.ict.nextgenpos.model;
 
 import java.util.List;
 import java.util.ArrayList;
+import se.kth.ict.nextgenpos.view.*;
 
 /**
  * Represents a single sale to one customer.
@@ -11,12 +12,13 @@ public class Sale {
     private int currentTotal;
     private int payedAmount;
     private int iterator;
+	private List<SalesObserver> salesObservers = new ArrayList<>();
 
     /**
      * Instantiates a new <code>Sale</code>.
      */
     public Sale() {
-	lineItems = new ArrayList<SalesLineItem>();
+    	lineItems = new ArrayList<SalesLineItem>();
     }
 
     /**
@@ -24,11 +26,13 @@ public class Sale {
      *
      * @param spec            The specification of the items that is added.
      * @param quantity        The number of items.
+     * @throws NonExistingItemIdException 
      */
-    public void addItem(ProductSpecification spec, int quantity) {
-	SalesLineItem lineItem = new SalesLineItem(spec, quantity);
-	lineItems.add(lineItem);
-	addToTotal(lineItem);
+    public void addItem(ProductSpecification spec, int quantity) throws NonExistingItemIdException {
+    	SalesLineItem lineItem = new SalesLineItem(spec, quantity);
+    	lineItems.add(lineItem);
+    	addToTotal(lineItem);
+    	notifyObservers();
     }
 
     private void addToTotal(SalesLineItem lineItem) {
@@ -43,6 +47,25 @@ public class Sale {
      */
     public int getCurrentTotal() {
 	return currentTotal;
+    }
+    
+    /**
+     * Adds 
+     * @param obs
+     */
+    public void addSalesObservers(List<SalesObserver> obs){
+    	salesObservers.addAll(obs);
+    }
+    
+    /**
+     * @throws NonExistingItemIdException 
+     * 
+     */
+    private void notifyObservers() throws NonExistingItemIdException {
+    	int index = (lineItems.size()-1);
+    	for (SalesObserver obs : salesObservers) {
+    		obs.newItem(lineItems.get(index));
+    	} 	
     }
 
     /**
