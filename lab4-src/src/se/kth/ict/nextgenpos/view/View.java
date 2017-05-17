@@ -31,16 +31,8 @@ public class View {
     public void test() {
     	cont.makeNewSale();    	
     	enterItem(1);
-    	/*System.out.println(">>>>> NOTE!!\n" +
-			   "A null pointer exception will follow since there is no handling" + 
-			   " of non-existing item ids. When you have implemented exception" +
-			   " handling, there should be some informative printout instead of the" +
-			   " exception stack trace.");*/
     	enterItem(2);
-    	enterItem(3);
     	enterItem(10);
-    	enterItem(1);
-    	enterItem(9);
     }
 
     /**
@@ -52,7 +44,8 @@ public class View {
     		System.out.println("");
     		System.out.println("\n ### The information about the requested product ### \n Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
     		System.out.println("");
-    	} catch(NoneExistingItemIdException n) {
+    	}
+    	catch(NoneExistingItemIdException n) {
     		handleException(n.getMessage(), n);
 		}
     }
