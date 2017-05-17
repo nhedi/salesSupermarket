@@ -1,15 +1,9 @@
 package se.kth.ict.nextgenpos.view;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 import se.kth.ict.nextgenpos.controller.Controller;
 import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
-import se.kth.ict.nextgenpos.model.SalesObserver;
-import se.kth.ict.nextgenpos.model.ProductSpecification;
-import util.LogHandler;
+import se.kth.ict.nextgenpos.util.LogHandler;
 
 /**
  * A placeholder for the view.
@@ -35,16 +29,18 @@ public class View {
      * Simulates a view. Makes some calls to the controller.
      */
     public void test() {
-    	cont.makeNewSale();
+    	cont.makeNewSale();    	
     	enterItem(1);
-    	System.out.println(">>>>> NOTE!!\n" +
+    	/*System.out.println(">>>>> NOTE!!\n" +
 			   "A null pointer exception will follow since there is no handling" + 
 			   " of non-existing item ids. When you have implemented exception" +
 			   " handling, there should be some informative printout instead of the" +
-			   " exception stack trace.");
+			   " exception stack trace.");*/
     	enterItem(2);
     	enterItem(3);
+    	enterItem(10);
     	enterItem(1);
+    	enterItem(9);
     }
 
     /**
@@ -58,8 +54,8 @@ public class View {
     		System.out.println("");
     	} catch(NonExistingItemIdException n) {
     		handleException(n.getMessage(), n);
-			}
-    	}
+		}
+    }
     
     /**
      * Handles different types of exceptions.

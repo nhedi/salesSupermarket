@@ -1,9 +1,7 @@
 package se.kth.ict.nextgenpos.model;
 
 import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * This class is responsible for all access to the product database.

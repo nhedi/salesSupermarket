@@ -2,7 +2,6 @@ package se.kth.ict.nextgenpos.model;
 
 import java.util.List;
 import java.util.ArrayList;
-import se.kth.ict.nextgenpos.view.*;
 
 /**
  * Represents a single sale to one customer.
@@ -49,16 +48,16 @@ public class Sale {
     }
     
     /**
-     * Adds 
-     * @param obs
+     * Adds all SalesObserver objects to a combined list.
+     * @param obs A list with SalesObservers.
      */
     public void addSalesObservers(List<SalesObserver> obs) {
     	salesObservers.addAll(obs);
     }
     
     /**
+     * Notifies all SalesObservers if a new item has been added to the product catalog.
      * @throws NonExistingItemIdException 
-     * 
      */
     private void notifyObservers() throws NonExistingItemIdException {
     	int index = (lineItems.size()-1);

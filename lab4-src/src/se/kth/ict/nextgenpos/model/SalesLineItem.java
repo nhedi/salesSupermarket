@@ -14,7 +14,7 @@ public class SalesLineItem {
      *                    new instance.
      * @param quantity    The number of items of this product that are sold to the customer.
      */
-    SalesLineItem(ProductSpecification spec, int quantity) {
+public SalesLineItem(ProductSpecification spec, int quantity) {
     	this.spec = spec;
     	this.quantity = quantity;
     }
