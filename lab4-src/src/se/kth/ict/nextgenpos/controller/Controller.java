@@ -57,7 +57,7 @@ public class Controller {
 			sale.addItem(spec, quantity);
 			
 		} catch(NonExistingItemIdException n) {
-			throw new NonExistingItemIdException(n.getMessage());
+			throw n;
 		}
 		return spec;
     }
