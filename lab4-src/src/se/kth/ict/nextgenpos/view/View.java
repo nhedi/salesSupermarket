@@ -2,7 +2,7 @@ package se.kth.ict.nextgenpos.view;
 
 import java.io.IOException;
 import se.kth.ict.nextgenpos.controller.Controller;
-import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
+import se.kth.ict.nextgenpos.model.NoneExistingItemIdException;
 import se.kth.ict.nextgenpos.util.LogHandler;
 
 /**
@@ -52,7 +52,7 @@ public class View {
     		System.out.println("");
     		System.out.println("\n ### The information about the requested product ### \n Result for item " + itemId + ": " + cont.enterItem(itemId, quantity));
     		System.out.println("");
-    	} catch(NonExistingItemIdException n) {
+    	} catch(NoneExistingItemIdException n) {
     		handleException(n.getMessage(), n);
 		}
     }

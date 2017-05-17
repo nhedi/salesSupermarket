@@ -25,9 +25,9 @@ public class Sale {
      *
      * @param spec            The specification of the items that is added.
      * @param quantity        The number of items.
-     * @throws NonExistingItemIdException 
+     * @throws NoneExistingItemIdException 
      */
-    public void addItem(ProductSpecification spec, int quantity) throws NonExistingItemIdException {
+    public void addItem(ProductSpecification spec, int quantity) throws NoneExistingItemIdException {
     	SalesLineItem lineItem = new SalesLineItem(spec, quantity);
     	lineItems.add(lineItem);
     	addToTotal(lineItem);
@@ -57,9 +57,9 @@ public class Sale {
     
     /**
      * Notifies all SalesObservers if a new item has been added to the product catalog.
-     * @throws NonExistingItemIdException 
+     * @throws NoneExistingItemIdException 
      */
-    private void notifyObservers() throws NonExistingItemIdException {
+    private void notifyObservers() throws NoneExistingItemIdException {
     	int index = (lineItems.size()-1);
     	for (SalesObserver obs : salesObservers) {
     		obs.newItem(lineItems.get(index));

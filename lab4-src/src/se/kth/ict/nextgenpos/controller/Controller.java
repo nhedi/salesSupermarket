@@ -5,7 +5,7 @@ import se.kth.ict.nextgenpos.model.SalesObserver;
 import se.kth.ict.nextgenpos.model.Receipt;
 import se.kth.ict.nextgenpos.model.ProductCatalog;
 import se.kth.ict.nextgenpos.model.ProductSpecification;
-import se.kth.ict.nextgenpos.model.NonExistingItemIdException;
+import se.kth.ict.nextgenpos.model.NoneExistingItemIdException;
 import java.util.*;
 
 /**
@@ -44,9 +44,9 @@ public class Controller {
      * @param quantity       The quantity of items to be entered.
      * @return               Information about the entered item.
      * @throws IllegalStateException If this method is called before makeNewSale().
-     * @throws NonExistingItemIdException if the search item Id does not exist in the product catalog.
+     * @throws NoneExistingItemIdException if the search item Id does not exist in the product catalog.
      */
-    public ProductSpecification enterItem(int itemId, int quantity) throws NonExistingItemIdException {
+    public ProductSpecification enterItem(int itemId, int quantity) throws NoneExistingItemIdException {
 		if (sale == null) {
 		    throw new IllegalStateException("enterItem() called before makeNewSale()");
 		}

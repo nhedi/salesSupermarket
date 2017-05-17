@@ -27,11 +27,11 @@ public class ProductCatalog {
      *
      * @param    itemId The item to look for
      * @return          The specification for the found item or null if no item was found.
-     * @throws	NonExistingItemIdException if the search item Id does not exist in the product catalog.
+     * @throws	NoneExistingItemIdException if the search item Id does not exist in the product catalog.
      */
-    public ProductSpecification findSpecification(int itemId) throws NonExistingItemIdException {
+    public ProductSpecification findSpecification(int itemId) throws NoneExistingItemIdException {
     	if(products.get(itemId) == null) {
-    		throw new NonExistingItemIdException("No such item ID: " + itemId);
+    		throw new NoneExistingItemIdException("No such item ID: " + itemId);
     	}    		
     	return products.get(itemId);
     }
