@@ -30,7 +30,16 @@ public class SalesItemDisplay implements SalesObserver {
 	 * @throws NonExistingItemIdException if the search item Id does not exist in the product catalog.
 	 */
 	private void addNewItem(SalesLineItem lineItems) throws NonExistingItemIdException {
-		noOfItemsRegistered.add(lineItems);
+		boolean listUpdated = false;
+			for (int i = 0; i < noOfItemsRegistered.size(); i++) {
+				if (lineItems.getSpec().getProductId() == noOfItemsRegistered.get(i).getSpec().getProductId()) {
+					noOfItemsRegistered.set(i, new SalesLineItem(lineItems.getSpec(), noOfItemsRegistered.get(i).getQuantity() + 1));
+					listUpdated = true;
+				}
+			}
+		if (listUpdated == false) {
+			noOfItemsRegistered.add(lineItems);
+		}
 	}
 	
 	/**
@@ -41,7 +50,7 @@ public class SalesItemDisplay implements SalesObserver {
 	public void printCurrentState(List<SalesLineItem> noOfItemsRegistered) throws NonExistingItemIdException { 
 		System.out.println("### The items registered in the product catalog: ###"); 
 		for (int i = 0; i < noOfItemsRegistered.size(); i++) {
-			System.out.println("Product ID: " + noOfItemsRegistered.get(i).getSpec().getProductId() +
+			System.out.println("Quantity: " + noOfItemsRegistered.get(i).getQuantity() + "\t Product ID: " + noOfItemsRegistered.get(i).getSpec().getProductId() +
 								"\t Product name: " + noOfItemsRegistered.get(i).getSpec().getName());
 		}
 	}

@@ -29,15 +29,18 @@ public class View {
      * Simulates a view. Makes some calls to the controller.
      */
     public void test() {
-    	cont.makeNewSale();
+    	cont.makeNewSale();    	
     	enterItem(1);
-    	System.out.println(">>>>> NOTE!!\n" +
+    	/*System.out.println(">>>>> NOTE!!\n" +
 			   "A null pointer exception will follow since there is no handling" + 
 			   " of non-existing item ids. When you have implemented exception" +
 			   " handling, there should be some informative printout instead of the" +
-			   " exception stack trace.");
+			   " exception stack trace.");*/
     	enterItem(2);
     	enterItem(3);
+    	enterItem(10);
+    	enterItem(1);
+    	enterItem(9);
     }
 
     /**
