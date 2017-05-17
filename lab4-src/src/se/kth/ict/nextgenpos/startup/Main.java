@@ -7,7 +7,7 @@ import se.kth.ict.nextgenpos.view.View;
 
 /**
  * Starts the application.
- * @throws NonExistingItemIdException if the search item Id does not exist in the product catalog.
+ * @throws NoneExistingItemIdException if the search item Id does not exist in the product catalog.
  */
 public class Main {
     public static void main(String[] args) throws IOException {
