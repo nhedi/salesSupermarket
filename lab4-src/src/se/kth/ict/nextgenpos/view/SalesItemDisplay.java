@@ -48,7 +48,7 @@ public class SalesItemDisplay implements SalesObserver {
 	 * @throws NonExistingItemIdException if the search item Id does not exist in the product catalog.
 	 */
 	public void printCurrentState(List<SalesLineItem> noOfItemsRegistered) throws NonExistingItemIdException { 
-		System.out.println("### The items registered in the product catalog: ###"); 
+		System.out.println("### The items registered so far: ###"); 
 		for (int i = 0; i < noOfItemsRegistered.size(); i++) {
 			System.out.println("Quantity: " + noOfItemsRegistered.get(i).getQuantity() + "\t Product ID: " + noOfItemsRegistered.get(i).getSpec().getProductId() +
 								"\t Product name: " + noOfItemsRegistered.get(i).getSpec().getName());
