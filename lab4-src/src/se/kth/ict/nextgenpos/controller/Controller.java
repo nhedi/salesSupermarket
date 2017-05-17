@@ -47,18 +47,12 @@ public class Controller {
      * @throws NonExistingItemIdException if the search item Id does not exist in the product catalog.
      */
     public ProductSpecification enterItem(int itemId, int quantity) throws NonExistingItemIdException {
-	
-    	ProductSpecification spec;
 		if (sale == null) {
 		    throw new IllegalStateException("enterItem() called before makeNewSale()");
 		}
-		try {
-			spec = catalog.findSpecification(itemId);
-			sale.addItem(spec, quantity);
-			
-		} catch(NonExistingItemIdException n) {
-			throw n;
-		}
+    	ProductSpecification spec;
+		spec = catalog.findSpecification(itemId);
+		sale.addItem(spec, quantity);		
 		return spec;
     }
 
